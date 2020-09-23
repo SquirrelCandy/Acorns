@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Properties>
+    <Property name="LOG_DIR">target/logs</Property>
+    <Property name="ARCHIVE">${LOG_DIR}/archive</Property>
+    <Property name="PATTERN">%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} %highlight{%-5p}{FATAL=blinking bright red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue, TRACE=bright black} %style{[%4.4t] %style{%-33.33c{1.}}{cyan} : %m%n%xEx}</Property>
+  </Properties>
+  <Appenders>
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <PatternLayout pattern="${PATTERN}" disableAnsi="false"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info" includeLocation="true">
+      <AppenderRef ref="ConsoleAppender"/>
+    </Root>
+  </Loggers>
+</Configuration>
